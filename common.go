@@ -47,7 +47,7 @@ import (
 	"github.com/ziutek/glib"
 )
 
-// returns (uri, gerror)
+// FilenameToURI returns (uri, gerror)
 func FilenameToURI(filename string) (string, error) {
 	var Cerr *C.GError
 	Cfilename := (*C.gchar)(C.CString(filename))

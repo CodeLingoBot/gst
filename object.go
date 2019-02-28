@@ -47,7 +47,7 @@ func (o *GstObj) SetParent(p *GstObj) bool {
 	return C.gst_object_set_parent(o.g(), p.g()) != 0
 }
 
-// Returns the parent of o. Increases the refcount of the parent object so you
+// GetParent returns the parent of o. Increases the refcount of the parent object so you
 // should Unref it after usage.
 func (o *GstObj) GetParent() *GstObj {
 	p := new(GstObj)
@@ -55,7 +55,7 @@ func (o *GstObj) GetParent() *GstObj {
 	return p
 }
 
-// Clear the parent of object, removing the associated reference. This function
+// Unparent clears the parent of object, removing the associated reference. This function
 // decreases the refcount of o. MT safe. Grabs and releases object's lock.
 func (o *GstObj) Unparent() {
 	C.gst_object_unparent(o.g())
